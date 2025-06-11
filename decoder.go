@@ -2,19 +2,19 @@ package codec
 
 import "time"
 
-type ArraySource interface {
-	GetArray() (ArraySource, error)
+type ArrayDecoder interface {
+	GetArray() (ArrayDecoder, error)
 	GetDate() (time.Time, error)
 	GetInt() (int, error)
 	GetString() (string, error)
-	GetObject() (ObjectSource, error)
+	GetObject() (ObjectDecoder, error)
 	Length() int
 }
 
-type ObjectSource interface {
-	GetArray(string) (ArraySource, error)
+type ObjectDecoder interface {
+	GetArray(string) (ArrayDecoder, error)
 	GetDate(string) (time.Time, error)
 	GetInt(string) (int, error)
 	GetString(string) (string, error)
-	GetObject(string) (ObjectSource, error)
+	GetObject(string) (ObjectDecoder, error)
 }
