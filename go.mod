@@ -1,3 +1,3 @@
-module github.com/ab36245/go-defs
+module github.com/ab36245/go-model
 
 go 1.24.4
