@@ -2,33 +2,36 @@ package model
 
 import "time"
 
+type ArrayHandler func(ArrayEncoder) error
+type MapHandler func(MapEncoder) error
+type ObjectHandler func(ObjectEncoder) error
+
 type ArrayEncoder interface {
-	PutArray(int, func(ArrayEncoder))
-	PutDate(time.Time)
-	PutInt(int)
-	PutMap(int, func(MapEncoder))
-	PutObject(func(ObjectEncoder))
-	PutRef(Ref)
-	PutString(string)
+	PutArray(int, ArrayHandler) error
+	PutDate(time.Time) error
+	PutInt(int) error
+	PutMap(int, MapHandler) error
+	PutObject(ObjectHandler) error
+	PutRef(Ref) error
+	PutString(string) error
 }
 
 type MapEncoder interface {
-	PutArray(int, func(ArrayEncoder))
-	PutDate(time.Time)
-	PutInt(int)
-	PutKey(string)
-	PutMap(int, func(MapEncoder))
-	PutObject(func(ObjectEncoder))
-	PutRef(Ref)
-	PutString(string)
+	PutArray(int, ArrayHandler) error
+	PutDate(time.Time) error
+	PutInt(int) error
+	PutMap(int, MapHandler) error
+	PutObject(ObjectHandler) error
+	PutRef(Ref) error
+	PutString(string) error
 }
 
 type ObjectEncoder interface {
-	PutArray(string, int, func(ArrayEncoder))
-	PutDate(string, time.Time)
-	PutInt(string, int)
-	PutMap(string, int, func(MapEncoder))
-	PutObject(string, func(ObjectEncoder))
-	PutRef(string, Ref)
-	PutString(string, string)
+	PutArray(string, int, ArrayHandler) error
+	PutDate(string, time.Time) error
+	PutInt(string, int) error
+	PutMap(string, int, MapHandler) error
+	PutObject(string, ObjectHandler) error
+	PutRef(string, Ref) error
+	PutString(string, string) error
 }

@@ -17,7 +17,6 @@ type MapDecoder interface {
 	GetArray() (ArrayDecoder, error)
 	GetDate() (time.Time, error)
 	GetInt() (int, error)
-	GetKey() (string, error)
 	GetMap() (MapDecoder, error)
 	GetObject() (ObjectDecoder, error)
 	GetRef() (Ref, error)
