@@ -5,6 +5,7 @@ import "time"
 type ArrayDecoder interface {
 	GetArray() (ArrayDecoder, error)
 	GetBool() (bool, error)
+	GetBytes() ([]byte, error)
 	GetFloat() (float64, error)
 	GetInt() (int, error)
 	GetMap() (MapDecoder, error)
@@ -18,6 +19,7 @@ type ArrayDecoder interface {
 type MapDecoder interface {
 	GetArray() (ArrayDecoder, error)
 	GetBool() (bool, error)
+	GetBytes() ([]byte, error)
 	GetFloat() (float64, error)
 	GetInt() (int, error)
 	GetMap() (MapDecoder, error)
@@ -31,6 +33,7 @@ type MapDecoder interface {
 type ObjectDecoder interface {
 	GetArray(string) (ArrayDecoder, error)
 	GetBool(string) (bool, error)
+	GetBytes(string) ([]byte, error)
 	GetFloat(string) (float64, error)
 	GetInt(string) (int, error)
 	GetMap(string) (MapDecoder, error)

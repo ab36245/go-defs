@@ -5,6 +5,7 @@ import "time"
 type ArrayEncoder interface {
 	PutArray(int) (ArrayEncoder, error)
 	PutBool(bool) error
+	PutBytes([]byte) error
 	PutFloat(float64) error
 	PutInt(int) error
 	PutMap(int) (MapEncoder, error)
@@ -17,6 +18,7 @@ type ArrayEncoder interface {
 type MapEncoder interface {
 	PutArray(int) (ArrayEncoder, error)
 	PutBool(bool) error
+	PutBytes([]byte) error
 	PutFloat(float64) error
 	PutInt(int) error
 	PutMap(int) (MapEncoder, error)
@@ -29,6 +31,7 @@ type MapEncoder interface {
 type ObjectEncoder interface {
 	PutArray(string, int) (ArrayEncoder, error)
 	PutBool(string, bool) error
+	PutBytes(string, []byte) error
 	PutFloat(string, float64) error
 	PutInt(string, int) error
 	PutMap(string, int) (MapEncoder, error)
