@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+type Ref string
+
+func (r Ref) String() string {
+	return fmt.Sprintf("%T(%s)", r, string(r))
+}
+
 type Date time.Time
 
 func (d Date) String() string {
@@ -15,10 +21,4 @@ type Time time.Time
 
 func (t Time) String() string {
 	return fmt.Sprintf("%T(%s)", t, time.Time(t).Format(time.TimeOnly))
-}
-
-type Ref string
-
-func (r Ref) String() string {
-	return fmt.Sprintf("%T(%s)", r, string(r))
 }
